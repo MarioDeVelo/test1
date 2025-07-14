@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Design Customer Intake Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .form-container {
+            padding: 40px 30px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.4em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: #3498db;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="url"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="url"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #3498db;
+            background: white;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.2);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .radio-item input[type="radio"] {
+            width: auto;
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .help-text {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                margin: 10px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .form-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Brand Design Intake Form</h1>
+            <p>Help us understand your vision and create the perfect brand identity for your business</p>
+        </div>
+
+        <form class="form-container" id="intakeForm">
+            <!-- Contact Information -->
+            <div class="section">
+                <h2 class="section-title">Contact Information</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name <span class="required">*</span></label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">Company/Organization Name <span class="required">*</span></label>
+                    <input type="text" id="company" name="company" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="website">Current Website (if any)</label>
+                    <input type="url" id="website" name="website" placeholder="https://www.example.com">
+                </div>
+            </div>
+
+            <!-- Business Information -->
+            <div class="section">
+                <h2 class="section-title">Business Information</h2>
+                
+                <div class="form-group">
+                    <label for="industry">Industry/Sector <span class="required">*</span></label>
+                    <select id="industry" name="industry" required>
+                        <option value="">Select your industry</option>
+                        <option value="technology">Technology</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="finance">Finance</option>
+                        <option value="retail">Retail</option>
+                        <option value="food-beverage">Food & Beverage</option>
+                        <option value="real-estate">Real Estate</option>
+                        <option value="education">Education</option>
+                        <option value="entertainment">Entertainment</option>
+                        <option value="consulting">Consulting</option>
+                        <option value="non-profit">Non-profit</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="businessDescription">Describe your business/organization <span class="required">*</span></label>
+                    <textarea id="businessDescription" name="businessDescription" placeholder="What does your business do? What products or services do you offer?" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="businessStage">Business Stage</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="startup" name="businessStage" value="startup">
+                            <label for="startup">Startup</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="established" name="businessStage" value="established">
+                            <label for="established">Established</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="rebranding" name="businessStage" value="rebranding">
+                            <label for="rebranding">Rebranding</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brand Objectives -->
+            <div class="section">
+                <h2 class="section-title">Brand Objectives</h2>
+                
+                <div class="form-group">
+                    <label for="brandGoals">What are your main branding goals? <span class="required">*</span></label>
+                    <textarea id="brandGoals" name="brandGoals" placeholder="e.g., Increase brand awareness, attract new customers, differentiate from competitors..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>What branding services do you need?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="logo" name="services" value="logo">
+                            <label for="logo">Logo Design</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="brandIdentity" name="services" value="brandIdentity">
+                            <label for="brandIdentity">Brand Identity</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="businessCards" name="services" value="businessCards">
+                            <label for="businessCards">Business Cards</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="website" name="services" value="website">
+                            <label for="website">Website Design</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="packaging" name="services" value="packaging">
+                            <label for="packaging">Packaging Design</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="marketing" name="services" value="marketing">
+                            <label for="marketing">Marketing Materials</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Target Audience -->
+            <div class="section">
+                <h2 class="section-title">Target Audience</h2>
+                
+                <div class="form-group">
+                    <label for="targetAudience">Describe your target audience <span class="required">*</span></label>
+                    <textarea id="targetAudience" name="targetAudience" placeholder="Age range, demographics, interests, behaviors, pain points..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="audienceLocation">Geographic location of your audience</label>
+                    <input type="text" id="audienceLocation" name="audienceLocation" placeholder="e.g., Local, National, International">
+                </div>
+            </div>
+
+            <!-- Design Preferences -->
+            <div class="section">
+                <h2 class="section-title">Design Preferences</h2>
+                
+                <div class="form-group">
+                    <label for="brandPersonality">How would you describe your brand's personality? <span class="required">*</span></label>
+                    <textarea id="brandPersonality" name="brandPersonality" placeholder="e.g., Professional, Creative, Trustworthy, Innovative, Fun, Luxury..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="designStyle">Preferred design style</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="modern" name="designStyle" value="modern">
+                            <label for="modern">Modern/Minimalist</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="classic" name="designStyle" value="classic">
+                            <label for="classic">Classic/Traditional</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="playful" name="designStyle" value="playful">
+                            <label for="playful">Playful/Creative</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="luxury" name="designStyle" value="luxury">
+                            <label for="luxury">Luxury/Premium</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="bold" name="designStyle" value="bold">
+                            <label for="bold">Bold/Edgy</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="organic" name="designStyle" value="organic">
+                            <label for="organic">Organic/Natural</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="colorPreferences">Color preferences</label>
+                    <textarea id="colorPreferences" name="colorPreferences" placeholder="Any specific colors you love or hate? Colors that represent your industry?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="inspiration">Design inspiration or references</label>
+                    <textarea id="inspiration" name="inspiration" placeholder="Share any websites, brands, or designs you admire and why"></textarea>
+                </div>
+            </div>
+
+            <!-- Competition & Market -->
+            <div class="section">
+                <h2 class="section-title">Competition & Market</h2>
+                
+                <div class="form-group">
+                    <label for="competitors">Who are your main competitors?</label>
+                    <textarea id="competitors" name="competitors" placeholder="List your top 3-5 competitors and what you think about their branding"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="differentiation">What makes you different from competitors?</label>
+                    <textarea id="differentiation" name="differentiation" placeholder="Your unique value proposition, competitive advantages"></textarea>
+                </div>
+            </div>
+
+            <!-- Project Details -->
+            <div class="section">
+                <h2 class="section-title">Project Details</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="budget">Budget Range</label>
+                        <select id="budget" name="budget">
+                            <option value="">Select budget range</option>
+                            <option value="under-1k">Under $1,000</option>
+                            <option value="1k-3k">$1,000 - $3,000</option>
+                            <option value="3k-5k">$3,000 - $5,000</option>
+                            <option value="5k-10k">$5,000 - $10,000</option>
+                            <option value="over-10k">Over $10,000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="timeline">Desired Timeline</label>
+                        <select id="timeline" name="timeline">
+                            <option value="">Select timeline</option>
+                            <option value="asap">ASAP</option>
+                            <option value="1-month">Within 1 month</option>
+                            <option value="2-3-months">2-3 months</option>
+                            <option value="flexible">Flexible</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="additionalInfo">Additional information or special requirements</label>
+                    <textarea id="additionalInfo" name="additionalInfo" placeholder="Anything else you'd like us to know about your project?"></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Intake Form</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('intakeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = {};
+            
+            // Handle regular inputs
+            for (let [key, value] of formData.entries()) {
+                if (data[key]) {
+                    // If key already exists, make it an array
+                    if (Array.isArray(data[key])) {
+                        data[key].push(value);
+                    } else {
+                        data[key] = [data[key], value];
+                    }
+                } else {
+                    data[key] = value;
+                }
+            }
+            
+            // Create a summary
+            let summary = "Brand Design Intake Form Submission\n";
+            summary += "=====================================\n\n";
+            
+            summary += `Client: ${data.firstName} ${data.lastName}\n`;
+            summary += `Company: ${data.company}\n`;
+            summary += `Email: ${data.email}\n`;
+            summary += `Phone: ${data.phone || 'Not provided'}\n`;
+            summary += `Website: ${data.website || 'Not provided'}\n\n`;
+            
+            summary += `Industry: ${data.industry}\n`;
+            summary += `Business Stage: ${data.businessStage || 'Not specified'}\n\n`;
+            
+            summary += `Business Description:\n${data.businessDescription}\n\n`;
+            
+            summary += `Brand Goals:\n${data.brandGoals}\n\n`;
+            
+            summary += `Target Audience:\n${data.targetAudience}\n\n`;
+            
+            summary += `Brand Personality:\n${data.brandPersonality}\n\n`;
+            
+            if (data.services) {
+                summary += `Services Needed: ${Array.isArray(data.services) ? data.services.join(', ') : data.services}\n\n`;
+            }
+            
+            if (data.designStyle) {
+                summary += `Design Style: ${Array.isArray(data.designStyle) ? data.designStyle.join(', ') : data.designStyle}\n\n`;
+            }
+            
+            summary += `Budget: ${data.budget || 'Not specified'}\n`;
+            summary += `Timeline: ${data.timeline || 'Not specified'}\n\n`;
+            
+            if (data.competitors) {
+                summary += `Competitors:\n${data.competitors}\n\n`;
+            }
+            
+            if (data.additionalInfo) {
+                summary += `Additional Information:\n${data.additionalInfo}\n\n`;
+            }
+            
+            // Display the summary
+            alert('Form submitted successfully! Check the console for the full data summary.');
+            console.log(summary);
+            
+            // In a real application, you would send this data to a server
+            // For now, we'll just show the success message
+            document.querySelector('.submit-btn').innerHTML = '✓ Form Submitted Successfully!';
+            document.querySelector('.submit-btn').style.background = 'linear-gradient(135deg, #27ae60 0%, #229954 100%)';
+            
+            // Reset after 3 seconds
+            setTimeout(() => {
+                document.querySelector('.submit-btn').innerHTML = 'Submit Intake Form';
+                document.querySelector('.submit-btn').style.background = 'linear-gradient(135deg, #3498db 0%, #2c3e50 100%)';
+            }, 3000);
+        });
+
+        // Add some interactive feedback
+        const inputs = document.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'translateY(-2px)';
+                this.parentElement.style.transition = 'transform 0.3s ease';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
