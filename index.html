@@ -402,12 +402,13 @@
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="firstName">First Name <span class="required" aria-label="required">*</span></label>
+                            <label for="firstName">First Name <span class="required">(required)</span></label>
                             <input 
                                 type="text" 
                                 id="firstName" 
                                 name="firstName" 
                                 required 
+                                aria-required="true"
                                 aria-describedby="firstName-error firstName-help"
                                 autocomplete="given-name"
                             >
@@ -415,12 +416,13 @@
                             <div id="firstName-error" class="error" role="alert"></div>
                         </div>
                         <div class="form-group">
-                            <label for="lastName">Last Name <span class="required" aria-label="required">*</span></label>
+                            <label for="lastName">Last Name <span class="required">(required)</span></label>
                             <input 
                                 type="text" 
                                 id="lastName" 
                                 name="lastName" 
                                 required 
+                                aria-required="true"
                                 aria-describedby="lastName-error lastName-help"
                                 autocomplete="family-name"
                             >
@@ -431,12 +433,13 @@
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="email">Email Address <span class="required" aria-label="required">*</span></label>
+                            <label for="email">Email Address <span class="required">(required)</span></label>
                             <input 
                                 type="email" 
                                 id="email" 
                                 name="email" 
                                 required 
+                                aria-required="true"
                                 aria-describedby="email-error email-help"
                                 autocomplete="email"
                             >
@@ -457,12 +460,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="company">Company/Organization Name <span class="required" aria-label="required">*</span></label>
+                        <label for="company">Company/Organization Name <span class="required">(required)</span></label>
                         <input 
                             type="text" 
                             id="company" 
                             name="company" 
                             required 
+                            aria-required="true"
                             aria-describedby="company-error company-help"
                             autocomplete="organization"
                         >
@@ -489,11 +493,12 @@
                     <h2 id="business-heading" class="section-title">Business Information</h2>
                     
                     <div class="form-group">
-                        <label for="industry">Industry/Sector <span class="required" aria-label="required">*</span></label>
+                        <label for="industry">Industry/Sector <span class="required">(required)</span></label>
                         <select 
                             id="industry" 
                             name="industry" 
                             required 
+                            aria-required="true"
                             aria-describedby="industry-error industry-help"
                         >
                             <option value="">Select your industry</option>
@@ -514,12 +519,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="businessDescription">Describe your business/organization <span class="required" aria-label="required">*</span></label>
+                        <label for="businessDescription">Describe your business/organization <span class="required">(required)</span></label>
                         <textarea 
                             id="businessDescription" 
                             name="businessDescription" 
                             placeholder="What does your business do? What products or services do you offer?" 
                             required
+                            aria-required="true"
                             aria-describedby="businessDescription-error businessDescription-help"
                         ></textarea>
                         <div id="businessDescription-help" class="help-text">Describe what your business does and what products or services you offer</div>
@@ -551,12 +557,13 @@
                     <h2 id="objectives-heading" class="section-title">Brand Objectives</h2>
                     
                     <div class="form-group">
-                        <label for="brandGoals">What are your main branding goals? <span class="required" aria-label="required">*</span></label>
+                        <label for="brandGoals">What are your main branding goals? <span class="required">(required)</span></label>
                         <textarea 
                             id="brandGoals" 
                             name="brandGoals" 
                             placeholder="e.g., Increase brand awareness, attract new customers, differentiate from competitors..." 
                             required
+                            aria-required="true"
                             aria-describedby="brandGoals-error brandGoals-help"
                         ></textarea>
                         <div id="brandGoals-help" class="help-text">Describe your main branding goals and what you hope to achieve</div>
@@ -600,12 +607,13 @@
                     <h2 id="audience-heading" class="section-title">Target Audience</h2>
                     
                     <div class="form-group">
-                        <label for="targetAudience">Describe your target audience <span class="required" aria-label="required">*</span></label>
+                        <label for="targetAudience">Describe your target audience <span class="required">(required)</span></label>
                         <textarea 
                             id="targetAudience" 
                             name="targetAudience" 
                             placeholder="Age range, demographics, interests, behaviors, pain points..." 
                             required
+                            aria-required="true"
                             aria-describedby="targetAudience-error targetAudience-help"
                         ></textarea>
                         <div id="targetAudience-help" class="help-text">Describe your ideal customers - their age, interests, and characteristics</div>
@@ -630,12 +638,13 @@
                     <h2 id="design-heading" class="section-title">Design Preferences</h2>
                     
                     <div class="form-group">
-                        <label for="brandPersonality">How would you describe your brand's personality? <span class="required" aria-label="required">*</span></label>
+                        <label for="brandPersonality">How would you describe your brand's personality? <span class="required">(required)</span></label>
                         <textarea 
                             id="brandPersonality" 
                             name="brandPersonality" 
                             placeholder="e.g., Professional, Creative, Trustworthy, Innovative, Fun, Luxury..." 
                             required
+                            aria-required="true"
                             aria-describedby="brandPersonality-error brandPersonality-help"
                         ></textarea>
                         <div id="brandPersonality-help" class="help-text">Describe the personality and tone you want your brand to convey</div>
